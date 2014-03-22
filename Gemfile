@@ -16,24 +16,24 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'simple_form'
 
-gem 'capistrano',  '~> 3.0.1'
 gem 'devise'
 gem 'pry-rails'
 
 group :development do
+  gem 'capistrano',  '~> 3.0.1'
   gem 'capistrano-rails', '~> 1.1'
 end
 
 group :development, :test do
   gem 'rails-footnotes'
-  gem 'rspec-rails'
-  gem 'fuubar'
   gem 'awesome_print'
   gem 'binding_of_caller'
   gem 'better_errors'
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'fuubar'
   gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'capybara-webkit'
