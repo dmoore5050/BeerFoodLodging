@@ -1,0 +1,23 @@
+login: &login
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  database: bfl_development
+  <<: *login
+
+test: &test
+  database: bfl_test
+  min_messages: WARNING
+  <<: *login
+
+production:
+  database: bfl_production
+  username: 'user'
+  password: 'password'
+  pool: 5
+
+cucumber:
+  <<: *test
