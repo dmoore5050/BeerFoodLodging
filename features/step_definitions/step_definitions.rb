@@ -23,6 +23,10 @@ When(/^I fill in '(.*?)' for '(.*?)'$/) do |text, field_name|
   fill_in field_name, with: text
 end
 
+When(/^show me the page$/) do
+  save_and_open_page
+end
+
 Then(/^I should see '(.*?)'$/) do |text|
   page.should have_content text
 end

@@ -50,4 +50,4 @@ Feature: User can log in and log out
       And I press 'Sign in'
       And I press 'Log out'
     Then I should see 'You are now logged out.'
-      And I should see a 'Log in' button
+      And I should see 'Log in'

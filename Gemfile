@@ -40,6 +40,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'selenium-webdriver'
   gem 'evented-spec'
   gem 'email_spec'
   gem 'factory_girl_rails'
