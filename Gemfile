@@ -14,6 +14,9 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'bourbon'
+gem 'neat'
+gem 'sprockets', '2.11'
 gem 'simple_form'
 
 gem 'devise'

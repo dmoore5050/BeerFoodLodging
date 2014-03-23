@@ -35,6 +35,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     capistrano (3.0.1)
       i18n
@@ -121,6 +124,9 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     multi_test (0.1.1)
+    neat (1.5.0)
+      bourbon (>= 2.1)
+      sass (>= 3.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
@@ -173,7 +179,7 @@ GEM
       rspec-mocks (~> 2.14.0)
     ruby-progressbar (1.4.2)
     safe_yaml (1.0.1)
-    sass (3.2.17)
+    sass (3.3.4)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -188,7 +194,7 @@ GEM
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
     slop (3.5.0)
-    sprockets (2.12.0)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -206,7 +212,7 @@ GEM
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
-    thor (0.18.1)
+    thor (0.19.0)
     thread_safe (0.3.1)
       atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
@@ -235,6 +241,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  bourbon
   capistrano (~> 3.0.1)
   capistrano-rails (~> 1.1)
   capybara
@@ -250,6 +257,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  neat
   nokogiri
   pg
   pry-rails
@@ -259,6 +267,7 @@ DEPENDENCIES
   sass-rails
   shoulda (~> 3.5.0)
   simple_form
+  sprockets (= 2.11)
   therubyracer
   timecop
   uglifier
