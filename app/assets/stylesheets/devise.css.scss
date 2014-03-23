@@ -1,0 +1,28 @@
+.form_wrapper {
+  width: 430px;
+
+  label {
+    width: 160px;
+    display: inline-block;
+  }
+
+  input:not([type='checkbox']) {
+    width: 260px;
+  }
+
+  input[type=checkbox] {
+    margin-left: 160px;
+    margin-right: 10px;
+  }
+
+  input.button {
+    width: 120px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  a {
+    text-align: center;
+    display: block;
+  }
+}

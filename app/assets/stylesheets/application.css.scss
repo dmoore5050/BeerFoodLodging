@@ -1,0 +1,62 @@
+@import 'bourbon';
+@import 'neat';
+@import 'bars';
+@import 'beer_stores';
+@import 'breweries';
+@import 'brewpubs';
+@import 'cities';
+@import 'comments';
+@import 'devise';
+@import 'home';
+@import 'lodgings';
+@import 'neighborhoods';
+@import 'posts';
+@import 'restaurants';
+@import 'users';
+
+.header,
+.main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px 0;
+
+  .left,
+  .alerts {
+    float: left;
+  }
+
+  .alerts {
+    margin-left: 100px;
+    width: 60%;
+
+    .alert,
+    .notice {
+      text-align: center;
+      margin-top: 0;
+    }
+
+  }
+
+  .right {
+    float: right;
+
+    span {
+      float: left;
+      margin-right: 40px;
+    }
+
+    form {
+      float: right;
+    }
+  }
+}
+
+.main {
+  width: 960px;
+  margin: 30px auto 0;
+}
