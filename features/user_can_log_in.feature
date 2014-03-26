@@ -4,12 +4,10 @@ Feature: User can log in and log out
   I want to be able to log in and log out
 
   Background:
-    Given the user 'bob'/'bob@example.com' with password of 'password1'
-      And I am on the homepage
-      And I click 'Log in'
+    Given the user 'bob' with password 'password1' presses 'Log in'
 
   Scenario: Happy Email Path
-    When I fill in 'bob@example.com' for 'Login'
+    When I fill in 'bob@email.com' for 'Login'
       And I fill in 'password1' for 'Password'
       And I press 'Sign in'
     Then I should see 'You are now logged in.'
@@ -23,13 +21,13 @@ Feature: User can log in and log out
       And I should see a 'Log out' button
 
   Scenario: Wrong Password
-    When I fill in 'bob@example.com' for 'Login'
+    When I fill in 'bob@email' for 'Login'
       And I fill in 'wrong password' for 'Password'
       And I press 'Sign in'
     Then I should see 'Your login or password is incorrect. Please try again.'
 
   Scenario: Wrong Email
-    When I fill in 'betty@example.com' for 'Login'
+    When I fill in 'betty@email.com' for 'Login'
       And I fill in 'password1' for 'Password'
       And I press 'Sign in'
     Then I should see 'Your login or password is incorrect. Please try again.'
