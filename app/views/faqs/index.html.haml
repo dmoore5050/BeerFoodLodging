@@ -1,0 +1,7 @@
+%h1 Frequently Asked Questions
+
+.accordion_wrapper
+  #accordion
+    - faqs.each do |faq|
+      %h3= faq.question
+      %div= faq.answer
