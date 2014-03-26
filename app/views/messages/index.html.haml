@@ -1,0 +1,30 @@
+%h1 Messages
+
+- messages.each do |m|
+  .message_bar.clearfix
+    = simple_form_for m, method: :delete, html: { class: 'inline_form_wrapper' } do |f|
+      = f.input :read, disabled: true
+      %p= m.title
+      = f.submit 'Delete',  class: 'delete_msg'
+    = button_tag 'Open', class: 'open_msg', data: { title: m.title }
+
+  #dialog.hidden
+    - sender = get_user(m)
+    %p.label= "Sender:"
+    %span= sender.username
+    %br
+    %p.label= "Email:"
+    %span= sender.email
+    %hr
+    %p= m.body
+    %hr
+
+    = simple_form_for message, :html => { class: 'form_wrapper' } do |f|
+      = f.input :recipient, as: :hidden, input_html: { value: merge_recipient_ids(m) }
+      = f.input :reason, as: :hidden, value: 'Reply to user'
+      = f.input :title, as: :string, input_html: { value: set_reply_title(m) }, required: true
+      = f.input :body, label: 'Message', required: true
+      %br
+      = f.button :submit, "Submit", :class => 'sync_btn'
+
+

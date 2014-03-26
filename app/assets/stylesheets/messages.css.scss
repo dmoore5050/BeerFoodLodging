@@ -1,0 +1,117 @@
+.text {
+
+  label {
+    vertical-align: top;
+    margin-top: 20px;
+  }
+
+  textarea {
+    height: 80px;
+    margin-top: 3px;
+  }
+
+}
+
+.message_bar {
+  border: 1px solid green;
+  padding: 15px;
+  margin-bottom: -1px;
+
+  input,
+  label {
+    float: left;
+  }
+
+  input {
+    margin-right: 8px;
+    margin-top: 7px;
+  }
+
+  label {
+    margin-right: 20px;
+    margin-top: 3px;
+  }
+
+  button,
+  .delete_msg {
+    margin-top: 1px;
+    cursor: pointer;
+    background-color: #09733a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    outline: none;
+  }
+
+  button {
+    float: left;
+    margin-right: 20px;
+  }
+
+  button:hover {
+    outline: none;
+  }
+
+  p {
+    margin: 0;
+    color: $green;
+    font-size: 21px;
+    width: 500px;
+    float: left;
+  }
+}
+
+.black {
+  color: black;
+}
+
+.ui-dialog {
+
+  .ui-widget-header {
+    border: 2px solid $green;
+    background-color: $green;
+    background-image: none;
+    font-weight: bold;
+
+    .ui-dialog-title {
+      color: white;
+    }
+
+    button {
+      outline: none;
+      background-color: $green!important;
+    }
+
+    .ui-state-default .ui-icon {
+      background-image: url("white_icon_set.png");
+    }
+  }
+
+  .label {
+    display: inline-block;
+    width: 70px;
+  }
+
+  p:first-of-type {
+    margin: 5px 0 0;
+  }
+
+  p:last-of-type {
+    margin-top: 5px;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+}
+
+.main .message_bar:first-of-type {
+  @include border-top-radius(5px);
+}
+
+.main .message_bar:last-of-type {
+  @include border-bottom-radius(5px);
+}
