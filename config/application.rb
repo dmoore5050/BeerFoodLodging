@@ -57,14 +57,13 @@ module BFL
       ActiveRecord::Base.connection
     end
 
-    config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
-    config.assets.paths << Rails.root.join("app", "assets", "javascripts")
-    config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
-    config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
     I18n.enforce_available_locales = false
 
     # routes exceptions to router Rack app instead of public/[exception].html pages
     config.exceptions_app = self.routes
 
+    config.action_mailer.default_url_options = {
+      :host => "beerfoodlodging.com"
+    }
   end
 end
