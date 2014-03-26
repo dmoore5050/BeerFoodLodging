@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323013103) do
+ActiveRecord::Schema.define(version: 20140326195427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,13 @@ ActiveRecord::Schema.define(version: 20140323013103) do
     t.datetime "updated_at"
   end
 
+  create_table "faqs", force: true do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lodgings", force: true do |t|
     t.integer  "neighborhood_id"
     t.text     "name"
@@ -139,6 +146,17 @@ ActiveRecord::Schema.define(version: 20140323013103) do
   end
 
   add_index "lodgings", ["name"], name: "index_lodgings_on_name", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "body"
+    t.text     "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "read",       default: false
+    t.string   "recipient"
+  end
 
   create_table "neighborhoods", force: true do |t|
     t.integer  "city_id"
