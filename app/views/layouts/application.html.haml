@@ -2,27 +2,58 @@
 %html
   %head
     %title BeerFoodLodging
+
+    %link{ :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css" }
+    %link{ :href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700", :rel => "stylesheet", :type => "text/css" }
+
     = stylesheet_link_tag    'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     .header
-      .left
-        = link_to 'Home', root_path
+      .nav_wrapper.clearfix
+        .logo
+          = link_to 'BeerFoodLodging', root_path
 
-      .alerts
-        - if notice
-          %p.notice= notice
-        - elsif alert
-          %p.alert= alert
+        .alerts
+          - if notice
+            %p.flash-message.notice= notice
+          - elsif alert
+            %p.flash-message.alert= alert
 
-      .right
+        .status
+          - if current_user
+            = button_to 'Log out', destroy_user_session_path, method: :delete
+            %span.divider &#124;
+            %span Hi, #{current_user.username}!
+            - if current_user.admin
+              %span.divider &#124;
+              = link_to 'Admin Panel', admin_path
+              = link_to message_notification, messages_path, class: 'message_count'
+          - elsif @user.nil?
+            = link_to 'Sign up', new_user_registration_path, method: :get
+            %span.divider &#124;
+            = link_to 'Log in', new_user_session_path
+
         - if current_user
-          %span Hi, #{current_user.username}!
-          = button_to 'Log out', destroy_user_session_path, method: :delete
-        - elsif @user.nil?
-          = link_to 'Sign up', new_user_registration_path, method: :get
-          = link_to 'Log in', new_user_session_path
+          %ul.navbar
+            %li.about_tab.nav_item.active
+              About
+              %ul
+                %li
+                  = link_to 'About BFL', about_path
+                %li
+                  = link_to 'FAQs', faqs_path
+                %li
+                  = link_to 'Subscription Info', subscriptions_path
+            %li.cities.nav_item.inactive
+              Cities
+              %ul
+                - cities.each do |city|
+                  %li
+                    = link_to city.name, city_path(city)
+
+    %hr
 
     .main
       = yield
