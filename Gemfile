@@ -13,6 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-sass-rails'
 gem 'haml'
 gem 'bourbon'
 gem 'neat'
