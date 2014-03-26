@@ -1,3 +1,45 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.accordion_wrapper {
+  max-width: 60%;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 2px solid $green;
+  color: $green;
+  background-image: none!important;
+  background-color: white;
+  @include transition(background-color 0.3s, color 0.3s)
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 2px solid $green;
+  color: white;
+  background-image: none!important;
+  background-color: $green;
+}
+
+.ui-state-default .ui-icon {
+  background-image: url("green_icon_set.png");
+  @include transition(background-image 0.3s)
+}
+
+.ui-state-active .ui-icon {
+  background-image: url("white_icon_set.png");
+}
+
+.ui-widget-content {
+  border: 2px solid green;
+  color: rgb(80,80,80);
+}
+
+.contact_btn {
+  display: inline-block;
+  color: white;
+  background-color: green;
+  padding: 10px 20px;
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
+}
