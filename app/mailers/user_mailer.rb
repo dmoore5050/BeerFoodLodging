@@ -8,14 +8,13 @@ class UserMailer < ActionMailer::Base
   end
 
   def message_email(message)
-    users = eval(message.recipient).split(',').map { |id| User.find id }
-    binding.pry
+    users = eval(message.recipient).map { |id| User.find id }
 
     users.each do |user|
       @user    = user
       @message = message
       @url     = "http://beerfoodlodging.com/messages/new"
-      mail(:to => recipient.email, :subject => message.title)
+      mail(:to => user.email, :subject => message.title)
     end
   end
 end
