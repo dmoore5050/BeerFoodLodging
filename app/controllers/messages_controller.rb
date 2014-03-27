@@ -4,15 +4,17 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     message = Message.create message_params
 
     flash[:notice] = "Message sent!"
 
     UserMailer.message_email(message).deliver unless message.invalid?
 
-    redirect_to root_path unless current_user.admin
-    redirect_to messages_url
+    if current_user.admin
+      redirect_to messages_url
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
