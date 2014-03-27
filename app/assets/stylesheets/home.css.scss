@@ -38,7 +38,7 @@
 .contact_btn {
   display: inline-block;
   color: white;
-  background-color: green;
+  background-color: $green;
   padding: 10px 20px;
   @include border-top-radius(5px);
   @include border-bottom-radius(5px);
