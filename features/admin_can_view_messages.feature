@@ -4,7 +4,7 @@ Feature: Admin can view messages
   I want to be able to view, read, and delete messages
 
   Background:
-    Given a logged in admin
+    Given I am logged in as admin
 
   Scenario: No unread messages
     When I am on the homepage

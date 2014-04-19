@@ -12,7 +12,7 @@ Given(/^the user '(.*?)' logs in with password '(.*?)'$/) do |username, pw|
   click_link_or_button 'Sign in'
 end
 
-Given(/^a logged in admin$/) do
+Given(/^I am logged in as admin$/) do
   username, password = 'admin', '12345678'
   user = User.create(username: username, email: "#{username}@email.com", password: password, password_confirmation: password)
   user.update_column :admin, true

@@ -28,7 +28,7 @@ Feature: User can use about menu
 
   @javascript
   Scenario: View Subscription Levels
-    When I click 'Subscription Info'
+    When I click 'Subscription'
     Then I should see 'Premium'
       And I should see 'Custom Itinerary'
 
