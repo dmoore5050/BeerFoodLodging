@@ -20,6 +20,10 @@ gem 'neat'
 gem 'sprockets', '2.11'
 gem 'simple_form'
 
+gem 'acts-as-taggable-on'
+gem 'kaminari'
+gem 'carrierwave'
+
 gem 'devise'
 gem 'pry-rails'
 
