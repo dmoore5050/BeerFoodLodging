@@ -68,7 +68,7 @@ class MessagesController < ApplicationController
   helper_method :merge_recipient_ids
 
   def set_reply_title(m)
-    title = "Re: #{m.title}" unless m.title.include? 'Re: '
+    title = "Re: #{m.title}" unless m.title.include? 'Re:'
   end
   helper_method :set_reply_title
 
