@@ -1,0 +1,11 @@
+.categories_wrapper
+
+  = link_to 'Add Category', '#', id: 'reveal_new_cat_form', class: 'contact_btn'
+
+  = simple_form_for category, :html => { class: 'form_wrapper' }, remote: true do |f|
+    = f.input :name, as: :text, required: true, label: "New Categories (Separate by commas)".html_safe
+    = f.button :submit, "Create Categories", :class => 'sync_btn'
+
+  %h2 Categories:
+  %ul.category_list
+    = render categories

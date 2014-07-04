@@ -1,3 +1,80 @@
-// Place all the styles related to the categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.categories_wrapper {
+  width: 720px;
+  margin: 0 auto;
+
+  .contact_btn {
+    cursor: pointer;
+  }
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-size: 1.9em;
+  }
+
+  .form_wrapper {
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+
+    label {
+      width: 270px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input.button {
+      margin: 5px 0 0;
+    }
+
+    .text textarea {
+      height: 50px;
+      width: 360px;
+    }
+  }
+}
+
+.category_list {
+  padding-left: 0;
+  margin-top: 20px;
+
+  li {
+    list-style-type: none;
+    color: $green;
+    padding: 5px 10px 7px;
+    border-top: 2px solid $green;
+    font-size: 1.2em;
+  }
+
+  li:last-of-type {
+    border-bottom: 2px solid $green;
+  }
+}
+
+.list_item {
+
+  a,
+  form {
+    float: right;
+  }
+
+  a,
+  .line_btn.delete {
+    background: $green;
+    width: 60px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 4px 0;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: -1px;
+  }
+
+  form {
+    display: inline;
+  }
+}

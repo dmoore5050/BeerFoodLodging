@@ -1,0 +1,6 @@
+%li.list_item
+  = category.name.titleize
+
+  = link_to 'Delete', category, class: 'line_btn delete', method: :delete, remote: true
+
+  = link_to 'Edit', edit_category_path(category), class: 'line_btn'
