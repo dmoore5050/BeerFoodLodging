@@ -1,3 +1,116 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.posts_wrapper {
+  width: 720px;
+  margin: 0 auto;
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-size: 1.9em;
+  }
+}
+
+.post_list {
+  padding-left: 0;
+  margin-top: 20px;
+
+  li {
+    list-style-type: none;
+    color: $green;
+    padding: 5px 10px 7px;
+    border-top: 2px solid $green;
+    font-size: 1.2em;
+
+    a,
+    form {
+      float: right;
+    }
+
+    a,
+    .line_btn.delete {
+      background: $green;
+      width: 100px;
+      text-align: center;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      padding: 4px 0;
+      margin-left: 5px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-top: -1px;
+    }
+
+    form {
+      display: inline;
+    }
+  }
+
+  li:last-of-type {
+    border-bottom: 2px solid $green;
+  }
+}
+
+#ui-datepicker-div {
+  border-color: $green;
+  color: $green;
+  margin-top: 6px;
+  display: none;
+
+  .ui-datepicker-prev {
+    float: left;
+  }
+
+  .ui-datepicker-next {
+    float: right;
+  }
+
+  .ui-datepicker-title {
+    text-align: center;
+  }
+
+  th {
+    width: 26px;
+  }
+
+  td a {
+    width: 20px;
+    display: block;
+  }
+
+  .ui-widget-header {
+    border-radius: 0;
+    border: none;
+    background-color: $green;
+    color: white;
+    padding: 3px 6px;
+    background-image: none;
+
+    .ui-state-hover,
+    .ui-widget-content .ui-state-hover,
+    .ui-widget-header .ui-state-hover {
+      background-color: $green;
+      border: none;
+      background-image: none;
+      color: white;
+    }
+
+    .ui-state-hover .ui-icon,
+    .ui-state-focus .ui-icon,
+    .ui-icon {
+      background-image: url("white_icon_set.png");
+      cursor: pointer;
+    }
+
+  }
+
+  .ui-icon {
+    display: inline-block;
+  }
+
+  .ui-state-hover {
+    border: none;
+  }
+
+}
+

@@ -1,0 +1,36 @@
+
+.pagination {
+  padding:.3em;
+  margin:.3em;
+  font: 13.34px $source_sans_pro;
+
+  a {
+    padding: .1em .3em;
+    margin: .2em;
+    border: 1px solid #0fba5e;
+    text-decoration: none;
+    color:#0fba5e;
+  }
+
+  a:hover,
+  a:active {
+    border: 1px solid #09733a;
+    color: #09733a;
+  }
+
+  span.current {
+    padding: .1em .3em;
+    margin: .2em;
+    border: 1px solid #369;
+    font-weight: bold;
+    background-color: #369;
+    color: #FFF;
+  }
+
+  span.disabled {
+    padding: .1em .3em;
+    margin: .2em;
+    border: 1px solid #eee;
+    color: #ddd;
+  }
+}
