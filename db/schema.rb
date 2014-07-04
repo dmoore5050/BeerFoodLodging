@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419162046) do
+ActiveRecord::Schema.define(version: 20140420041753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,14 +177,11 @@ ActiveRecord::Schema.define(version: 20140419162046) do
     t.integer  "user_id"
     t.text     "title"
     t.text     "body"
-    t.string   "tags",         array: true
-    t.date     "published_on"
+    t.datetime "published_on"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
   end
-
-  add_index "posts", ["tags"], name: "index_posts_on_tags", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.integer  "neighborhood_id"
@@ -210,6 +207,25 @@ ActiveRecord::Schema.define(version: 20140419162046) do
   add_index "restaurants", ["hours"], name: "index_restaurants_on_hours", using: :btree
   add_index "restaurants", ["name"], name: "index_restaurants_on_name", using: :btree
   add_index "restaurants", ["price"], name: "index_restaurants_on_price", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
