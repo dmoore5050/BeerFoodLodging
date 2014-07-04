@@ -11,12 +11,7 @@ describe Post, 'columns' do
   it { should have_db_column :title }
   it { should have_db_column :body }
   it { should have_db_column :category_id }
-  it { should have_db_column :tags }
   it { should have_db_column :published_on }
-end
-
-describe Post, 'indexes' do
-  it { should have_db_index :tags }
 end
 
 describe Post, 'validations' do

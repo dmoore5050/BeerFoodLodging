@@ -34,6 +34,10 @@ Given(/^(.*?) (.*?) (?:message|messages)$/) do |num, state|
   end
 end
 
+Given(/^the category (.*?)$/) do |name|
+  Category.create name: name
+end
+
 When(/^I (?:click|press) '(.*?)'$/) do |text|
   click_link_or_button text
 end
