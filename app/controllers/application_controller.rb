@@ -2,6 +2,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  after_filter :flash_to_headers
+
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['flash-type'] = flash.keys.first.to_s
+    response.headers['flash-msg']  = flash[:alert]   unless flash[:alert].blank?
+    response.headers['flash-msg']  = flash[:notice]  unless flash[:notice].blank?
+
+
+    flash.discard
+  end
 
   protected
 
