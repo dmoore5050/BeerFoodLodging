@@ -30,10 +30,11 @@ class ApplicationController < ActionController::Base
   helper_method :cities
 
   def message_notification
-    messages = Message.where(read: false).to_a
-    count    = messages.present? ? "#{messages.count}" : "No"
+    messages  = Message.where(read: false).to_a
+    count     = messages.count
+    quantity  = messages.present? ? count : "No"
 
-    "#{count} unread messages"
+    "#{quantity} unread #{'message'.pluralize(count)}"
   end
   helper_method :message_notification
 end
