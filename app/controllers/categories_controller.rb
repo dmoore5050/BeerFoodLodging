@@ -3,10 +3,11 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    names = category_params[:name].split(',')
+    format = Proc.new { |str| str.downcase.strip }
+    names  = category_params[:name].split(',').map(&format).uniq.reject(&:empty?)
 
     @categories = names.map do |n|
-      Category.create(name: n.strip)
+      Category.create(name: n)
     end
 
     flash[:notice] = "Categories created!"
