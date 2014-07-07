@@ -1,5 +1,5 @@
 %li{ class: 'list_item', data: { 'id' => category.id } }
-  = category.name.titleize
+  = category.name
 
   = link_to 'Delete', category, class: 'line_btn delete', method: :delete, remote: true
 
