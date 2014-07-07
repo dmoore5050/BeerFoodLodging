@@ -5,10 +5,12 @@ $source_sans_pro: 'Source Sans Pro', sans-serif;
 h1, h2, h3, h4, h5, h6 {
   font-family: $montserrat;
   color: $green;
+  -webkit-font-smoothing: antialiased;
 }
 
 p, a, span, div, input, .ui-widget {
   font-family: $source_sans_pro;
+  -webkit-font-smoothing: antialiased;
 }
 
 a, a:hover {
