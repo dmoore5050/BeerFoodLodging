@@ -5,8 +5,8 @@ $(document).ready ->
   $('body').on 'click', '#reveal_new_cat_form', (e) ->
     e.preventDefault()
 
-    $(this).fadeOut( 0 )
-    $('#new_category').animate
+    $(this).hide()
+    $('#new_category').show().animate
       height: '125px', 200
 
   # show edit category modal on button click
