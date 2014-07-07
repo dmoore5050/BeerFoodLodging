@@ -27,6 +27,18 @@ a, a:hover {
   display: none;
 }
 
+.green_text {
+  color: $green;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.subhead {
+  font-size: 24px;
+}
+
 .width470 {
   width: 470px;
   margin: 0 auto;

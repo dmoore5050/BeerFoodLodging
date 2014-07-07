@@ -7,7 +7,7 @@ $(document).ready ->
 
     $(this).hide()
     $('#new_category').show().animate
-      height: '125px', 200
+      height: '157px', 200
 
   # show edit category modal on button click
 
