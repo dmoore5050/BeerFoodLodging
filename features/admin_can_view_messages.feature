@@ -32,7 +32,7 @@ Feature: Admin can view messages
   Scenario: Delete unread message
     Given 1 unread message
     When I am on the homepage
-      And I click '1 unread messages'
+      And I click '1 unread message'
       And I press 'Delete'
     Then I should see 'No unread messages'
       And I should not see 'title1'
@@ -40,6 +40,6 @@ Feature: Admin can view messages
   Scenario: Read unread message
     Given 1 unread message
     When I am on the homepage
-      And I click '1 unread messages'
+      And I click '1 unread message'
       And I press 'Open'
 
