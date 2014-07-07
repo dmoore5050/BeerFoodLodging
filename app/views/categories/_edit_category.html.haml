@@ -1,0 +1,7 @@
+%div{ id: "edit_category_#{category.id}", class: 'edit_category_form' }
+
+  = simple_form_for category, :html => { class: 'form_wrapper' }, remote: true do |f|
+    = f.input :name, as: :string, required: true
+    %br
+    = link_to 'Cancel', '#', class: 'cancel sync_btn'
+    = f.button :submit, "Update Category", :class => 'sync_btn'

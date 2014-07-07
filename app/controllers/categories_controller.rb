@@ -30,7 +30,9 @@ class CategoriesController < ApplicationController
 
     flash[:notice] = 'Category updated!'
 
-    redirect_to categories_url
+    respond_to do |format|
+      format.js
+    end
   end
 
   def index
@@ -40,7 +42,7 @@ class CategoriesController < ApplicationController
     @category = Category.find params[:id]
     @category.destroy
 
-    flash[:notice] = 'Category destroyed!'
+    flash[:notice] = 'Category deleted!'
 
     respond_to do |format|
       format.js
@@ -61,7 +63,7 @@ class CategoriesController < ApplicationController
   helper_method :category
 
   def categories
-    @category = Category.all
+    @categories = Category.all
   end
   helper_method :categories
 end

@@ -1,6 +1,8 @@
-%li.list_item
+%li{ class: 'list_item', data: { 'id' => category.id } }
   = category.name.titleize
 
   = link_to 'Delete', category, class: 'line_btn delete', method: :delete, remote: true
 
-  = link_to 'Edit', edit_category_path(category), class: 'line_btn'
+  = link_to 'Edit', '#', class: "line_btn edit_category", data: { 'id' => category.id }
+
+  = render 'edit_category', category: category

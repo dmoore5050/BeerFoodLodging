@@ -28,4 +28,3 @@ $(document).ready ->
     if ( typeof msg != 'undefined' && type != 'error')
       $('.alerts').html("<p class='flash-message #{type}'>#{msg}</p>")
       setTimeout flashCallback, 3000
-
