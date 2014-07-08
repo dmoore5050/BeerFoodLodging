@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
       Category.create(name: n)
     end
 
-    flash[:notice] = "Categories created!"
+    flash[:notice] = 'Categories created!'
 
     respond_to do |format|
       format.js

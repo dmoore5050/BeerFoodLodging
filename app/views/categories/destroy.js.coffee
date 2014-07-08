@@ -1,3 +1,1 @@
-// refine method used to grab row to delete
-
 $('li:contains("<%= @category.name.titleize %>")').remove()
