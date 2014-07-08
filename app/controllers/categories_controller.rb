@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def create
     format = Proc.new { |str| str.titleize.strip }
-    names  = category_params[:name].split(',').map(&format).uniq.reject(&:empty?)
+    names  = category_params[:name].split(',').map(&format).uniq.reject(&:blank?)
 
     @categories = names.map do |n|
       Category.create(name: n)

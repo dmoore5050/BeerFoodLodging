@@ -81,3 +81,7 @@ end
 Then(/^I should see '(.*?)' (?:category|categories)$/) do |num|
   page.should have_css(".category_list li.list_item", :count=>num)
 end
+
+Then(/^the input should be required$/) do
+  expect(page).to have_xpath("//input[@required='required']")
+end

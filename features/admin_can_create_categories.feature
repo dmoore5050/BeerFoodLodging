@@ -12,16 +12,16 @@ Feature: Admin can create category
   @javascript
   Scenario: Happy creation path
     When I click 'Add Category'
-      And I fill in 'Dinosaurs' for 'Add Categories'
-      And I press 'Create Categories'
+      And I fill in 'Dinosaurs' for '(Separate by commas)'
+      And I press 'Create'
     Then I should see 'Categories created!'
       And I should see 'Dinosaurs'
 
   @javascript
   Scenario: Admin can create multiple categories
     When I click 'Add Category'
-      And I fill in 'Dinosaurs, small mammals' for 'Add Categories'
-      And I press 'Create Categories'
+      And I fill in 'Dinosaurs, small mammals' for '(Separate by commas)'
+      And I press 'Create'
     Then I should see 'Categories created!'
       And I should see 'Dinosaurs'
       And I should see 'Small Mammals'
@@ -29,15 +29,15 @@ Feature: Admin can create category
   @javascript
   Scenario: Category creation filters out non-unique categories
     When I click 'Add Category'
-      And I fill in 'dinosaurs, dinosaurs' for 'Add Categories'
-      And I press 'Create Categories'
+      And I fill in 'dinosaurs, dinosaurs' for '(Separate by commas)'
+      And I press 'Create'
     Then I should see 'Categories created!'
       And I should see '1' category
 
   @javascript
   Scenario: Duplicate filtering is case/whitespace insensitive
     When I click 'Add Category'
-      And I fill in 'Dinosaurs, dinosaurs,dinosaurs, Dinosaurs ' for 'Add Categories'
-      And I press 'Create Categories'
+      And I fill in 'Dinosaurs, dinosaurs,dinosaurs, Dinosaurs ' for '(Separate by commas)'
+      And I press 'Create'
     Then I should see 'Categories created!'
       And I should see '1' category

@@ -7,7 +7,7 @@ $(document).ready ->
 
     $(this).addClass('expanded').removeClass 'no_height'
     $('#new_category').show().animate
-      height: '138px', 200
+      height: '128px', 200
 
   # hide visible form on click
 
