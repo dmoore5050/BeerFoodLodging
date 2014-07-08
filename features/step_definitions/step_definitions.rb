@@ -34,7 +34,7 @@ Given(/^(.*?) (.*?) (?:message|messages)$/) do |num, state|
   end
 end
 
-Given(/^the category (.*?)$/) do |name|
+Given(/^the category '(.*?)'$/) do |name|
   Category.create name: name
 end
 
@@ -62,6 +62,10 @@ When(/^show me the page$/) do
   save_and_open_page
 end
 
+When(/^I refresh '(.*?)'$/) do |page|
+  visit("/#{page.downcase}")
+end
+
 Then(/^I should see '(.*?)'$/) do |text|
   page.should have_content text
 end
@@ -72,4 +76,8 @@ end
 
 Then(/^I should see a '(.*?)' button$/) do |name|
   find_button(name).should_not be_nil
+end
+
+Then(/^I should see '(.*?)' (?:category|categories)$/) do |num|
+  page.should have_css(".category_list li.list_item", :count=>num)
 end
