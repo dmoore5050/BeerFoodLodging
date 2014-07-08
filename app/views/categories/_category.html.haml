@@ -1,8 +1,8 @@
 %li{ class: 'list_item', data: { 'id' => category.id } }
   = category.name
 
-  = link_to 'Delete', category, class: 'line_btn delete', method: :delete, remote: true
+  = link_to 'Delete', category, class: 'line_btn delete green-btn', method: :delete, remote: true
 
-  = link_to 'Edit', '#', class: "line_btn edit_category", data: { 'id' => category.id }
+  = link_to 'Edit', '#', class: "line_btn edit_category green-btn", data: { 'id' => category.id }
 
   = render 'edit_category', category: category

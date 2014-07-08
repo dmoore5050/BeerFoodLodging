@@ -1,15 +1,25 @@
 $(document).ready ->
 
-  # show new category form on button click
+  # show new category form on click
 
-  $('body').on 'click', '#reveal_new_cat_form', (e) ->
+  $('body').on 'click', '#reveal_new_cat_form.no_height', (e) ->
     e.preventDefault()
 
-    $(this).hide()
+    $(this).addClass('expanded').removeClass 'no_height'
     $('#new_category').show().animate
-      height: '157px', 200
+      height: '138px', 200
 
-  # show edit category modal on button click
+  # hide visible form on click
+
+  $('body').on 'click', '#reveal_new_cat_form.expanded', (e) ->
+    e.preventDefault()
+
+    $(this).addClass('no_height').removeClass 'expanded'
+    $('textarea#category_name').val ''
+    $('#new_category').show().animate
+      height: '0', 200
+
+  # show edit category modal on click
 
   $('body').on 'click', '.edit_category', (e) ->
     e.preventDefault()

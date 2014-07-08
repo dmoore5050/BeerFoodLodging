@@ -2,12 +2,32 @@
   width: 720px;
   margin: 0 auto;
 
+  textarea {
+    outline: none;
+  }
+
   .contact_btn {
     cursor: pointer;
   }
 
+  .ui-icon {
+    background-image: url("green_icon_set.png");
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: -2px;
+  }
+
+  .no_height .ui-icon {
+    background-position: -49px -192px;
+  }
+
+  .expanded .ui-icon {
+  background-position: -65px -192px;
+  }
+
   h2 {
-    margin-top: 40px;
+    margin-top: 25px;
     margin-bottom: 0px;
     font-size: 1.9em;
   }
@@ -62,25 +82,25 @@
     float: right;
   }
 
-  a,
-  .line_btn.delete {
-    background: $green;
-    width: 60px;
-    text-align: center;
-    color: white;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 4px 0;
-    margin-left: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin-top: -1px;
-  }
-
   form {
     display: inline;
   }
+}
+
+.green-btn {
+  background: $green;
+  width: 60px;
+  text-align: center;
+  color: white!important;
+  border-radius: 5px;
+  font-size: 16px!important;
+  padding: 4px 0;
+  margin-left: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: -1px;
+  display: inline-block!important;
 }
 
 .ui-dialog {
@@ -122,5 +142,27 @@
 
   form {
     margin-top: 20px;
+  }
+
+  .wide {
+    width: 150px;
+  }
+
+  .wide.green-btn {
+    margin: 0px auto 20px;
+  }
+
+  .button_wrapper {
+    width: 195px;
+    margin: 0 auto;
+  }
+
+  #category_name {
+    margin: 30px auto 0;
+    display: block;
+  }
+
+  input {
+    outline: none;
   }
 }
