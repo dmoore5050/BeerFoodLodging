@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     @post.destroy
 
-    flash[:notice] = 'Post destroyed!'
+    flash[:notice] = 'Post deleted!'
 
     respond_to do |format|
       format.js
