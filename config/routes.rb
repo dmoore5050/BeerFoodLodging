@@ -16,7 +16,7 @@ BFL::Application.routes.draw do
     match 'admin' => 'home#admin', via: :get
     resources :messages, only: [:show, :index, :destroy]
     resources :categories, except: [:show]
-    resources :posts, except: :show
+    resources :posts, except: [:show]
   end
 
   resources :posts, only: :show

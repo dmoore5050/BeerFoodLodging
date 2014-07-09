@@ -1,7 +1,4 @@
 class CategoriesController < ApplicationController
-  def new
-  end
-
   def create
     format = Proc.new { |str| str.titleize.strip }
     names  = category_params[:name].split(',').map(&format).uniq.reject(&:blank?)
@@ -15,10 +12,6 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.js
     end
-  end
-
-  def edit
-    @category = Category.find params[:id]
   end
 
   def update

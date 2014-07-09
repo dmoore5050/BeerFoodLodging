@@ -1,7 +1,4 @@
 class PostsController < ApplicationController
-  def new
-  end
-
   def create
     @post = Post.create post_params
 
@@ -13,10 +10,6 @@ class PostsController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
-    @post = Post.find params[:id]
   end
 
   def update
