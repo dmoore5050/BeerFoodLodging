@@ -1,0 +1,3 @@
+= simple_form_for category, :html => { class: 'form_wrapper' }, remote: true do |f|
+  = f.input :name, as: :text, required: true, label: '(Separate by commas)'
+  = f.button :submit, "Create", :class => 'sync_btn green-btn'

@@ -1,1 +1,1 @@
-$('li:contains("<%= @category.name.titleize %>")').remove()
+$("li[data-id='<%= @category.id %>']").remove()

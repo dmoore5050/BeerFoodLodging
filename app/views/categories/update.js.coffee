@@ -1,6 +1,3 @@
-$editedCategory = $('.category_list').find "[data-id='<%= @category.id %>']"
-textNode = $editedCategory.contents().filter( () -> this.nodeType == 3 ).first()
-
-textNode.replaceWith '<%= @category.name %>'
+$("li[data-id='<%= @category.id %>']").replaceWith "<%= escape_javascript(render @category) %>"
 
 $('.ui-dialog-content').dialog 'close'
