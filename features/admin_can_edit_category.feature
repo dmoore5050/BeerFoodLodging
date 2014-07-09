@@ -4,7 +4,7 @@ Feature: Admin can edit category
   I want to be able to edit a category
 
   Background:
-    Given the category 'Dinosaurs'
+    Given a 'Category' with the 'name' 'Dinosaurs'
       And I am logged in as admin
       And I am on the homepage
       And I click 'Admin Panel'

@@ -34,8 +34,8 @@ Given(/^(.*?) (.*?) (?:message|messages)$/) do |num, state|
   end
 end
 
-Given(/^the category '(.*?)'$/) do |name|
-  Category.create name: name
+Given(/^a '(.*?)' with the '(.*?)' '(.*?)'$/) do |class_name, column, value|
+  class_name.constantize.create column.parameterize.underscore.to_sym => value
 end
 
 When(/^I (?:click|press) '(.*?)'$/) do |text|

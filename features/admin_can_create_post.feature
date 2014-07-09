@@ -4,7 +4,7 @@ Feature: User can create post
   I want to be able to create a post
 
   Background:
-    Given the category 'Nomming and Glugging'
+    Given a 'Category' with the 'name' 'Nomming and Glugging'
       And I am logged in as admin
       And I am on the homepage
       And I click 'Admin Panel'
