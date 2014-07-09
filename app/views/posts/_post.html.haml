@@ -6,8 +6,8 @@
   = link_to 'Edit', '#', class: 'line_btn edit_post green-btn', data: { 'id' => post.id }
 
   - if post.published_on
-    = link_to "Unpublish", post_path( post, post: { published_on: nil } ), method: :put, remote:true, class: 'line_btn delete'
+    = link_to "Unpublish", post_path( post, post: { published_on: nil } ), method: :put, remote:true, class: 'line_btn delete publish'
   - else
-    = link_to "Publish Now", post_path(post, post: { published_on: Time.now } ), method: :put, remote:true, class: 'line_btn delete'
+    = link_to "Publish Now", post_path(post, post: { published_on: Time.now } ), method: :put, remote:true, class: 'line_btn delete publish'
 
   = render 'edit_post', post: post
