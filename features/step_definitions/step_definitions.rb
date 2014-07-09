@@ -35,7 +35,15 @@ Given(/^(.*?) (.*?) (?:message|messages)$/) do |num, state|
 end
 
 Given(/^a '(.*?)' with the '(.*?)' '(.*?)'$/) do |class_name, column, value|
-  class_name.constantize.create column.parameterize.underscore.to_sym => value
+  columns = column.split ','
+  values  = value.split ','
+  opts = columns.zip( values ).each_with_object({}) do |a, hash|
+    column = a[0].parameterize.underscore.to_sym
+    value  = a[1].strip
+    hash[column] = value
+  end
+
+  class_name.constantize.create opts
 end
 
 When(/^I (?:click|press) '(.*?)'$/) do |text|
