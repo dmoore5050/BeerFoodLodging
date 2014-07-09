@@ -2,11 +2,46 @@
   width: 720px;
   margin: 0 auto;
 
-  h2 {
-    margin-top: 40px;
-    margin-bottom: 0px;
-    font-size: 1.9em;
+  .ui-icon {
+    background-image: url("green_icon_set.png");
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: -2px;
   }
+
+  .no_height .ui-icon {
+    background-position: -49px -192px;
+  }
+
+  .expanded .ui-icon {
+    background-position: -65px -192px;
+  }
+
+  .new_post_form {
+    height: 0;
+    overflow: hidden;
+    margin: 0 auto;
+
+    .post_title {
+      margin-top: 30px;
+    }
+
+    input.wide {
+      width: 150px;
+      padding: 6px 0;
+    }
+  }
+
+}
+
+.edit_post_form {
+  display: none;
+}
+
+.ui-dialog,
+.ui-dialog-content {
+  font-size: 13px;
 }
 
 .post_list {

@@ -26,12 +26,6 @@
   background-position: -65px -192px;
   }
 
-  h2 {
-    margin-top: 25px;
-    margin-bottom: 0px;
-    font-size: 1.9em;
-  }
-
   .form_wrapper {
     margin: 0;
     height: 0;
@@ -86,22 +80,6 @@
   form {
     display: inline;
   }
-}
-
-.green-btn {
-  background: $green;
-  width: 60px;
-  text-align: center;
-  color: white!important;
-  border-radius: 5px;
-  font-size: 16px!important;
-  padding: 4px 0;
-  margin-left: 5px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-top: -1px;
-  display: inline-block!important;
 }
 
 .ui-dialog {
