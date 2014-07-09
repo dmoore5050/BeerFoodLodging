@@ -1,0 +1,13 @@
+%li{ class: 'list_item', data: { 'id' => post.id } }
+  = post.title
+
+  = link_to 'Delete', post, class: 'line_btn delete green-btn', method: :delete, remote: true
+
+  = link_to 'Edit', '#', class: 'line_btn edit_post green-btn', data: { 'id' => post.id }
+
+  - if post.published_on
+    = link_to "Unpublish", post_path( post, post: { published_on: nil } ), method: :put, remote:true, class: 'line_btn delete'
+  - else
+    = link_to "Publish Now", post_path(post, post: { published_on: Time.now } ), method: :put, remote:true, class: 'line_btn delete'
+
+  = render 'edit_post', post: post
