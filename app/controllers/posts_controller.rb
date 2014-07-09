@@ -26,19 +26,23 @@ class PostsController < ApplicationController
 
     flash[:notice] = 'Post updated!'
 
-    redirect_to posts_url
+    respond_to do |format|
+      format.js
+    end
   end
 
   def index
   end
 
   def destroy
-    post = Post.find params[:id]
-    post.destroy
+    @post = Post.find params[:id]
+    @post.destroy
 
     flash[:notice] = 'Post destroyed!'
 
-    redirect_to posts_url
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
