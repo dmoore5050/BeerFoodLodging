@@ -1,6 +1,4 @@
-%h2.width470 New Post:
-
-= simple_form_for post, :html => { class: 'form_wrapper' } do |f|
+= simple_form_for post, :html => { class: 'form_wrapper new_post_form' }, remote: true do |f|
   = f.input :title, as: :string, required: true
   = f.input :body, required: true
   = f.input :category_id,
@@ -13,4 +11,4 @@
   = f.input :tag_list, label: "Tags (separated by commas)"
   = f.input :published_on, :as => :datepicker
   %br
-  = f.button :submit, "Create Post", :class => 'sync_btn'
+  = f.button :submit, "Create Post", :class => 'sync_btn green-btn wide'

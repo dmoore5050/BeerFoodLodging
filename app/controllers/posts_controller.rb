@@ -7,7 +7,9 @@ class PostsController < ApplicationController
 
     flash[:notice] = 'Post created!'
 
-    redirect_to posts_url
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show

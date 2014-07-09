@@ -1,24 +1,13 @@
 .posts_wrapper
 
-  = link_to 'New Post', new_post_path, class: 'contact_btn'
+  = link_to '#', class: 'width470 green_text subhead bold no_height', id: 'reveal_new_post_form' do
+    New Post
+    %span.ui-icon
+
+  = render 'new_post'
 
   %h2 Posts:
   %ul.post_list
-    -posts.each do |post|
-      %li.list_item
-        = post.title
+    = render posts
 
-        = simple_form_for post, method: :delete do |f|
-          = f.button :submit, "Delete", class: 'line_btn delete'
-
-        = link_to 'Edit', edit_post_path(post), class: 'line_btn'
-
-        - if post.published_on
-          = simple_form_for post, url: post_path(post) do |f|
-            = f.input :published_on, as: :hidden, input_html: { value: nil }
-            = f.button :submit, "Unpublish", class: 'line_btn delete'
-        - else
-          = simple_form_for post, url: post_path(post) do |f|
-            = f.input :published_on, as: :hidden, input_html: { value: Time.now }
-            = f.button :submit, "Publish Now", class: 'line_btn delete'
 
