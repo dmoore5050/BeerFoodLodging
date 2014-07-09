@@ -40,6 +40,7 @@ Given(/^a '(.*?)' with the '(.*?)' '(.*?)'$/) do |class_name, column, value|
   opts = columns.zip( values ).each_with_object({}) do |a, hash|
     column = a[0].parameterize.underscore.to_sym
     value  = a[1].strip
+
     hash[column] = value
   end
 

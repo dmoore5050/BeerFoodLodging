@@ -14,4 +14,6 @@
     = f.input :tag_list, label: "Tags (separated by commas)"
     = f.input :published_on, :as => :datepicker
     %br
-    = f.button :submit, "Update Post", :class => 'sync_btn'
+    .button_wrapper
+      = link_to 'Cancel', '#', class: 'cancel green-btn'
+      = f.button :submit, "Update Post", :class => 'wide  green-btn'
