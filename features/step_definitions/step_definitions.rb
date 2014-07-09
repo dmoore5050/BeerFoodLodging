@@ -78,8 +78,8 @@ Then(/^I should see a '(.*?)' button$/) do |name|
   find_button(name).should_not be_nil
 end
 
-Then(/^I should see '(.*?)' (?:category|categories)$/) do |num|
-  page.should have_css(".category_list li.list_item", :count=>num)
+Then(/^there should be '(.*?)' '(.*?)'$/) do |num, name|
+  page.should have_css(".#{name.singularize}_list li.list_item", :count=>num)
 end
 
 Then(/^the input should be required$/) do
