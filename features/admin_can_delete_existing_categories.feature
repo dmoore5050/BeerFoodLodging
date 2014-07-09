@@ -9,17 +9,13 @@ Feature: Admin can delete category
       And I am on the homepage
       And I click 'Admin Panel'
       And I click 'Categories'
-
-  Scenario: Category is pre-existing
-    Then I should see '1' categories
+      And I press 'Delete'
 
   Scenario: Happy deletion path
-    When I press 'Delete'
-    Then I should see '0' categories
+    Then there should be '0' 'categories'
       And I should see 'Category deleted!'
 
   Scenario: Ensure record is removed from db
-    When I press 'Delete'
-      And I refresh '/categories'
-    Then I should see '0' categories
+    When I refresh '/categories'
+    Then there should be '0' 'categories'
 
