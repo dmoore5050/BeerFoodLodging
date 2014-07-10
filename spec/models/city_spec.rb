@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe City, 'associations' do
-  it { should have_many :neighborhoods }
+  it { should have_many :locations }
 end
 
 describe City, 'columns' do

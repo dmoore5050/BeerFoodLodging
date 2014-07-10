@@ -11,103 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420041753) do
+ActiveRecord::Schema.define(version: 20140710175545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
-
-  create_table "bars", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.text     "name"
-    t.text     "address"
-    t.string   "phone"
-    t.hstore   "hours"
-    t.boolean  "food"
-    t.boolean  "growlers"
-    t.boolean  "bottles"
-    t.text     "summary"
-    t.text     "website"
-    t.text     "untapped_id"
-    t.boolean  "closed",          default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "bars", ["bottles"], name: "index_bars_on_bottles", using: :btree
-  add_index "bars", ["food"], name: "index_bars_on_food", using: :btree
-  add_index "bars", ["growlers"], name: "index_bars_on_growlers", using: :btree
-  add_index "bars", ["hours"], name: "index_bars_on_hours", using: :btree
-  add_index "bars", ["name"], name: "index_bars_on_name", using: :btree
-
-  create_table "beer_stores", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.text     "name"
-    t.text     "address"
-    t.string   "phone"
-    t.hstore   "hours"
-    t.boolean  "growlers"
-    t.text     "summary"
-    t.text     "website"
-    t.text     "untapped_id"
-    t.boolean  "closed",          default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "beer_stores", ["growlers"], name: "index_beer_stores_on_growlers", using: :btree
-  add_index "beer_stores", ["hours"], name: "index_beer_stores_on_hours", using: :btree
-  add_index "beer_stores", ["name"], name: "index_beer_stores_on_name", using: :btree
-
-  create_table "breweries", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.string   "name"
-    t.text     "address"
-    t.string   "phone"
-    t.hstore   "hours"
-    t.boolean  "tours"
-    t.boolean  "tasting_room"
-    t.boolean  "growlers"
-    t.boolean  "bottles"
-    t.boolean  "food"
-    t.text     "summary"
-    t.text     "website"
-    t.text     "untapped_id"
-    t.boolean  "closed",          default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "breweries", ["bottles"], name: "index_breweries_on_bottles", using: :btree
-  add_index "breweries", ["food"], name: "index_breweries_on_food", using: :btree
-  add_index "breweries", ["growlers"], name: "index_breweries_on_growlers", using: :btree
-  add_index "breweries", ["hours"], name: "index_breweries_on_hours", using: :btree
-  add_index "breweries", ["name"], name: "index_breweries_on_name", using: :btree
-  add_index "breweries", ["tasting_room"], name: "index_breweries_on_tasting_room", using: :btree
-  add_index "breweries", ["tours"], name: "index_breweries_on_tours", using: :btree
-
-  create_table "brewpubs", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.text     "name"
-    t.text     "address"
-    t.string   "phone"
-    t.hstore   "hours"
-    t.boolean  "tours"
-    t.boolean  "growlers"
-    t.boolean  "bottles"
-    t.text     "summary"
-    t.text     "website"
-    t.text     "untapped_id"
-    t.boolean  "closed",          default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "brewpubs", ["bottles"], name: "index_brewpubs_on_bottles", using: :btree
-  add_index "brewpubs", ["growlers"], name: "index_brewpubs_on_growlers", using: :btree
-  add_index "brewpubs", ["hours"], name: "index_brewpubs_on_hours", using: :btree
-  add_index "brewpubs", ["name"], name: "index_brewpubs_on_name", using: :btree
-  add_index "brewpubs", ["tours"], name: "index_brewpubs_on_tours", using: :btree
 
   create_table "categories", force: true do |t|
     t.text     "name"
@@ -140,18 +48,39 @@ ActiveRecord::Schema.define(version: 20140420041753) do
     t.datetime "updated_at"
   end
 
-  create_table "lodgings", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.text     "name"
+  create_table "locations", force: true do |t|
+    t.string   "neighborhood"
+    t.string   "name"
     t.text     "address"
     t.string   "phone"
+    t.hstore   "hours"
+    t.boolean  "tours"
+    t.boolean  "tasting_room"
+    t.boolean  "growlers"
+    t.boolean  "bottles"
+    t.boolean  "food"
+    t.string   "menu"
+    t.string   "cuisine"
+    t.string   "price"
     t.text     "summary"
-    t.boolean  "closed",          default: false
+    t.text     "website"
+    t.text     "untapped_id"
+    t.boolean  "closed",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "city_id"
   end
 
-  add_index "lodgings", ["name"], name: "index_lodgings_on_name", using: :btree
+  add_index "locations", ["bottles"], name: "index_locations_on_bottles", using: :btree
+  add_index "locations", ["cuisine"], name: "index_locations_on_cuisine", using: :btree
+  add_index "locations", ["food"], name: "index_locations_on_food", using: :btree
+  add_index "locations", ["growlers"], name: "index_locations_on_growlers", using: :btree
+  add_index "locations", ["hours"], name: "index_locations_on_hours", using: :btree
+  add_index "locations", ["name"], name: "index_locations_on_name", using: :btree
+  add_index "locations", ["neighborhood"], name: "index_locations_on_neighborhood", using: :btree
+  add_index "locations", ["price"], name: "index_locations_on_price", using: :btree
+  add_index "locations", ["tasting_room"], name: "index_locations_on_tasting_room", using: :btree
+  add_index "locations", ["tours"], name: "index_locations_on_tours", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
@@ -164,15 +93,6 @@ ActiveRecord::Schema.define(version: 20140420041753) do
     t.string   "recipient"
   end
 
-  create_table "neighborhoods", force: true do |t|
-    t.integer  "city_id"
-    t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "neighborhoods", ["name"], name: "index_neighborhoods_on_name", using: :btree
-
   create_table "posts", force: true do |t|
     t.integer  "user_id"
     t.text     "title"
@@ -182,31 +102,6 @@ ActiveRecord::Schema.define(version: 20140420041753) do
     t.datetime "updated_at"
     t.integer  "category_id"
   end
-
-  create_table "restaurants", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.text     "name"
-    t.text     "address"
-    t.string   "phone"
-    t.hstore   "hours"
-    t.string   "cuisine"
-    t.string   "price"
-    t.boolean  "growlers"
-    t.boolean  "bottles"
-    t.text     "summary"
-    t.text     "website"
-    t.text     "untapped_id"
-    t.boolean  "closed",          default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "restaurants", ["bottles"], name: "index_restaurants_on_bottles", using: :btree
-  add_index "restaurants", ["cuisine"], name: "index_restaurants_on_cuisine", using: :btree
-  add_index "restaurants", ["growlers"], name: "index_restaurants_on_growlers", using: :btree
-  add_index "restaurants", ["hours"], name: "index_restaurants_on_hours", using: :btree
-  add_index "restaurants", ["name"], name: "index_restaurants_on_name", using: :btree
-  add_index "restaurants", ["price"], name: "index_restaurants_on_price", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

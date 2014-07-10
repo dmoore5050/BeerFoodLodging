@@ -17,8 +17,14 @@ BFL::Application.routes.draw do
     resources :messages, only: [:show, :index, :destroy]
     resources :categories, except: [:show]
     resources :posts, except: [:show]
+    resources :locations, except: [:index, :show] do
+      collection do
+        get :admin_index
+      end
+    end
   end
 
+  resources :locations, only: [:index, :show]
   resources :posts, only: :show
 
   %w( 404 422 500 ).each do |code|
