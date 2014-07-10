@@ -1,9 +1,10 @@
-%h1 Contact BFL
+.message_wrapper
+  %h1 Contact BFL
 
-= simple_form_for message, :html => { class: 'form_wrapper' } do |f|
-  = f.input :recipient, as: :hidden, input_html: { value: admin_ids }
-  = f.input :reason, as: :string, required: true
-  = f.input :title, as: :string, required: true
-  = f.input :body, label: 'Message', required: true
-  %br
-  = f.button :submit, "Submit", :class => 'sync_btn'
+  = simple_form_for message, :html => { class: 'form_wrapper' } do |f|
+    = f.input :recipient, as: :hidden, input_html: { value: admin_ids }
+    = f.input :reason, as: :string, required: true
+    = f.input :title, as: :string, required: true
+    = f.input :body, label: 'Message', required: true
+    %br
+    = f.button :submit, "Submit", :class => 'sync_btn'
