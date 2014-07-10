@@ -5,6 +5,9 @@ BFL::Application.routes.draw do
 
   match 'about' => 'home#about', via: :get
   match 'subscriptions' => 'home#subscriptions', via: :get
+  match 'admin/locations' => 'locations#admin_index', via: :get
+  match 'admin/categories' => 'categories#index', via: :get
+  match 'admin/posts' => 'posts#index', via: :get
 
   get 'tags/:tag', to: 'home#index', as: :tag
 
@@ -17,11 +20,7 @@ BFL::Application.routes.draw do
     resources :messages, only: [:show, :index, :destroy]
     resources :categories, except: [:show]
     resources :posts, except: [:show]
-    resources :locations, except: [:index, :show] do
-      collection do
-        get :admin_index
-      end
-    end
+    resources :locations, except: [:index, :show]
   end
 
   resources :locations, only: [:index, :show]
