@@ -1,15 +1,13 @@
-%h1 Welcome to BFL!
+%h1.welcome_header Welcome to BFL!
 
 %br
-= paginate @posts
+.paginator
+  = paginate @posts, remote: true
 %br
 
-- @posts.each do |p|
-  %p= "Posted by #{user(p.user_id)} on #{format_time(p.published_on)}"
-  %p= p.title
-  %p= p.body
-  %p= "Category: #{p.category.name}" if p.category_id
-  %p= "Tags: #{ p.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') }".html_safe
+.cover_blog
+  = render 'blog_contents'
 
 %br
-= paginate @posts
+.paginator
+  = paginate @posts, remote: true
